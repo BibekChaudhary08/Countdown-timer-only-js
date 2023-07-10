@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+           <div id="days">
+
+           </div>
+
+           <div id="hours">
+
+           </div>
+
+           <div id="min">
+
+           </div>
+
+           <div id="sec">
+
+           </div>
+    </div>
+
+    <script>
+        let days = document.getElementById('days');
+        let hours = document.getElementById('hours');
+        let min = document.getElementById('min');
+        let sec = document.getElementById('sec');
+
+        let countDown = ()=>{
+            let futureDate = new Date('1 Dec 2024');
+            let todayDate = new Date;
+            let myDate = futureDate - todayDate;
+           // console.log(myDate);
+
+            let myDays = Math.floor(myDate/ 1000/ 60/ 60/ 24);
+            let myHours = Math.floor(myDate/ 1000/ 60/ 60) % 24;
+            let myMinutes = Math.floor(myDate/ 1000/ 60) % 60;
+            let mySeconds = Math.floor(myDate/ 1000) % 60;
+            
+            days.innerHTML = myDays;
+            hours.innerHTML = myHours;
+            min.innerHTML = myMinutes;
+            sec.innerHTML = mySeconds;
+            //console.log(mySeconds);
+
+        }
+        countDown();
+        setInterval(countDown, 1000);
+    </script>
+</body>
+</html>
